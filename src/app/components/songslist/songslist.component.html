@@ -1,0 +1,25 @@
+<div class="card">
+    <div class="card-header">Songs List</div>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">SongsName</th>
+                <th scope="col">Date of Release</th>
+                <th scope="col">Cover(image)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let song of songData;let ind = index">
+                <td>{{ind + 1}}</td>
+                <td>{{song.songName}}</td>
+                <td>{{song.releaseDate}}</td>
+                <td>{{song.coverImageURL}}</td> 
+                <td><a (click)="edit(song._id)" style="color:blueviolet">Edit</a></td>
+                <td><a (click)="delete(song._id)" style="color:blueviolet">Delete</a>  </td>    
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>

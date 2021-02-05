@@ -1,0 +1,41 @@
+<div class="card">
+    <div class="card-header">Artists</div>
+    <div class="card-body">
+      <form [formGroup]="artistForm" (submit)="addArtist(artistForm.value)" novalidate>
+        <div class="form-group">
+          <label class="col-md-4">Atrist Name</label>
+          <input type="text" class="form-control" formControlName="atristName" />
+        </div>
+        <div *ngIf="artistForm.controls['atristName'].invalid && (artistForm.controls['atristName'].dirty || artistForm.controls['atristName'].touched)" class="alert alert-danger">
+          <div *ngIf="artistForm.controls['atristName'].errors.required">
+            Atrist Name is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4">DOB</label>
+          <input type="text" class="form-control" formControlName="atristDob"/>
+        </div>
+        <div *ngIf="artistForm.controls['atristDob'].invalid && (artistForm.controls['atristDob'].dirty || artistForm.controls['atristDob'].touched)" class="alert alert-danger">
+          <div *ngIf="artistForm.controls['atristDob'].errors.required">
+            DOB is required.
+          </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-4">BIO </label>
+            <input type="text" class="form-control" formControlName="atristBio"/>
+        </div>
+        <div *ngIf="artistForm.controls['atristBio'].invalid && (artistForm.controls['atristBio'].dirty || artistForm.controls['atristBio'].touched)" class="alert alert-danger">
+          <div *ngIf="artistForm.controls['atristBio'].errors.required">
+            BIO is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <button  type="submit"
+           class="btn btn-primary" [disabled]="artistForm.pristine || artistForm.invalid" >
+            Create Artists
+          </button>
+          <button  class="btn btn-danger" type="reset" (click)="onReset()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>

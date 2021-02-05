@@ -1,0 +1,27 @@
+<div class="card">
+    <div class="card-header">Songs</div>
+    <div class="card-body">
+      <form [formGroup]="songForm" (submit)="addSong(songForm.value)">
+        <div class="form-group">
+          <label class="col-md-4">Name</label>
+          <input type="text" class="form-control" formControlName="songName"/>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4">Date of Release</label>
+          <input type="text" class="form-control" formControlName="releaseDate"/>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4" for="customFile">Cover(image)</label>
+          <input type="file" class="form-control" id="customFile" formControlName="coverImageURL"/>
+        </div>
+        <div class="form-group">
+          <button  type="submit" class="btn btn-primary" [disabled]="songForm.pristine || songForm.invalid" >
+            Create Songs
+           </button>
+           <button  class="btn btn-danger" type="reset" (click)="onReset()">Cancel</button>
+    
+        </div>
+      </form>
+     </div>
+      
+</div>
